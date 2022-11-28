@@ -1,7 +1,8 @@
+cook_book = {}
 with open('Cook.txt', 'rt', encoding='utf-8') as Cook_data:
-    cook_book = []
+
     for line in Cook_data:
-        dish_name = str(line.split())
+        dish_name = line.split()
         ingredients_count = int(Cook_data.readline())
         ingredients = []
         for _ in range(ingredients_count):
@@ -12,10 +13,11 @@ with open('Cook.txt', 'rt', encoding='utf-8') as Cook_data:
                                 'unit': unit})
         Cook_data.readline()
         c_b = {
-            dish_name: ingredients
+            dish_name[0]: ingredients
         }            
-        cook_book.append(c_b)   
+        cook_book.update(c_b)   
 
 print(cook_book)
+
 
 
