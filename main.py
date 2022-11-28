@@ -20,4 +20,10 @@ with open('Cook.txt', 'rt', encoding='utf-8') as Cook_data:
 print(cook_book)
 
 
-
+def get_shop_list_by_dishes(dishes, person_count):
+    shop_list = {}
+    if dishes == cook_book[0]:
+        
+    else:
+        print('Ошибка')
+    
