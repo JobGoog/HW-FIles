@@ -21,9 +21,21 @@ print(cook_book)
 
 
 def get_shop_list_by_dishes(dishes, person_count):
-    shop_list = {}
-    if dishes == cook_book[0]:
+    shop_list = dict()
+    for dish_name in dishes:
+        if dish_name in cook_book:
+            for ingredients in cook_book[dish_name]:
+                ing_name_list = dict()
+                if shop_list['name'] not in shop_list:
+                    ing_name_list['unit'] = ingredients['unit']
+                    ing_name_list['count'] = ingredients['count'] * person_count
+                    shop_list[ingredients['name']] = ing_name_list
+                else:
+                    shop_list[ingredients['name']]['count'] = shop_list[ingredients['name']]['count'] + ingredients['count'] * person_count
+        else: print(f'\n"Такого блюда нету в книге("\n')
+    return shop_list
+
+
+print(get_shop_list_by_dishes('Фахитос', 3))
         
-    else:
-        print('Ошибка')
-    
+# print(cook_book['Омлет'])
